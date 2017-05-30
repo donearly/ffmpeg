@@ -114,9 +114,12 @@ Java_com_example_sail_ffmpegdemo_VideoUtils_decode(JNIEnv *env, jclass type, jst
     //YUV420
     AVFrame *pFrameYUV = av_frame_alloc();
     //只有指定了AVFrame的像素格式、画面大小才能真正分配内存
-    //缓冲区分配内存 并初始化
+    //缓冲区分配内存
     uint8_t *out_buffer = (uint8_t *)av_malloc(
             (size_t) av_image_get_buffer_size(AV_PIX_FMT_YUV420P, pCodecCtx->width, pCodecCtx->height, 1));
+    //初始化
+    av_image_fill_arrays(pFrameYUV->data, pFrameYUV->linesize, out_buffer,
+                         AV_PIX_FMT_YUV420P, pCodecCtx->width, pCodecCtx->height, 1);
     //用于转码（缩放）的参数，转之前的宽高，转之后的宽高，格式等
     struct SwsContext *sws_ctx = sws_getContext(pCodecCtx->width,pCodecCtx->height,pCodecCtx->pix_fmt,
                                                 pCodecCtx->width, pCodecCtx->height, AV_PIX_FMT_YUV420P,
