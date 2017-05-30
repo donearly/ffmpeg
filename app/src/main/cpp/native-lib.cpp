@@ -19,7 +19,7 @@ extern "C"{
 
 
 JNIEXPORT void JNICALL
-Java_com_example_sail_ffmpegdemo_AideoUtils_decode(JNIEnv *env, jclass type, jstring input_,
+Java_com_example_sail_ffmpegdemo_VideoUtils_decode(JNIEnv *env, jclass type, jstring input_,
                                                    jstring output_) {
     const char *input_cstr = env->GetStringUTFChars(input_, 0);
     const char *output_cstr = env->GetStringUTFChars(output_, 0);

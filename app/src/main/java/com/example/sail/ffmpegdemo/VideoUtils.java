@@ -1,8 +1,7 @@
 package com.example.sail.ffmpegdemo;
 
-public class AideoUtils {
+public class VideoUtils {
     public native static void decode(String input,String output);
-
     static {
         System.loadLibrary("avutil");
         System.loadLibrary("avcodec");
