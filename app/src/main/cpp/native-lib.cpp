@@ -1,15 +1,15 @@
 #include <jni.h>
 #include <android/log.h>
 
-#ifdef __cplusplus
+
 extern "C" {
-#endif
+
 #include "libswscale/swscale.h"
 #include "libavformat/avformat.h"
 #include "libavutil/imgutils.h"
-#ifdef __cplusplus
+
 };
-#endif
+
 
 #define LOGI(FORMAT,...) __android_log_print(ANDROID_LOG_INFO,"Sail",FORMAT,##__VA_ARGS__);
 #define LOGE(FORMAT,...) __android_log_print(ANDROID_LOG_ERROR,"Sail",FORMAT,##__VA_ARGS__);
@@ -23,7 +23,7 @@ Java_com_example_sail_ffmpegdemo_VideoUtils_decode(JNIEnv *env, jclass type, jst
                                                    jstring output_) {
     const char *input_cstr = env->GetStringUTFChars(input_, 0);
     const char *output_cstr = env->GetStringUTFChars(output_, 0);
-
+    LOGE("%s",input_cstr);
     //1.注册所有组件
     av_register_all();
 
