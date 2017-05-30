@@ -48,7 +48,7 @@ include_directories(src/main/cpp/include)
 add_library(
             native-lib
             SHARED
-            src/main/cpp/native-lib.cpp )
+            src/main/cpp/native-lib.cpp)
 find_library(
             log-lib
             log )

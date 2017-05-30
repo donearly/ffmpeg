@@ -1,6 +1,5 @@
 #!/bin/bash
 make clean
-export NDK=/opt/android/android-ndk-r14b
 export SYSROOT=$NDK/platforms/android-21/arch-arm64/
 export TOOLCHAIN=$NDK/toolchains/aarch64-linux-androideabi-4.9/prebuilt/linux-x86_64
 export CPU=aarch64
