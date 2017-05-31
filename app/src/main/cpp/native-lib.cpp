@@ -31,6 +31,7 @@ Java_com_example_sail_ffmpegdemo_VideoUtils_decode(JNIEnv *env, jclass type, jst
     AVFormatContext *pFormatCtx = avformat_alloc_context();
 
     //2.打开输入视频文件
+    //可以根据返回值判断不能打开文件的原因
     if (avformat_open_input(&pFormatCtx, input_cstr, NULL, NULL) != 0)
     {
         LOGE("%s","无法打开输入视频文件");
