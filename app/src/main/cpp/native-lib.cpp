@@ -177,7 +177,9 @@ Java_com_example_sail_ffmpegdemo_VideoUtils_decode(JNIEnv *env, jclass type, jst
     fclose(fp_yuv);
     env->ReleaseStringUTFChars(input_, input_cstr);
     env->ReleaseStringUTFChars(output_, output_cstr);
+    av_free(out_buffer);
     av_frame_free(&pFrame);
+    av_frame_free(&pFrameYUV);
     avcodec_close(pCodecCtx);
     avformat_free_context(pFormatCtx);
 }
